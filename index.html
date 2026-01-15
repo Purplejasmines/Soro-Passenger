@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Book bus tickets in Zambia up to 30 days ahead with live pricing, mobile money payments, and digital tickets. Skip the station queues with Soro." />
+  <meta name="keywords" content="bus tickets, booking, Zambia, transportation, mobile money, digital tickets, live pricing" />
+  <meta name="author" content="Soro" />
+  <meta name="theme-color" content="#275F40" />
+  <meta name="color-scheme" content="light" />
+  
+  <!-- Performance & Preloading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.example.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <title>Soro — Book Bus Tickets Smarter</title>
+  <link rel="stylesheet" href="/Assets/styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="site-header" class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#" class="logo" aria-label="Soro home">
+          <img src="/assets/soro.png" alt="Soro" width="80" height="20" />
+          SORO
+        </a>
+      </div>
+
+       <nav class="nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="#about-mini">About</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+      
+
+      <!-- Mobile menu button -->
+      <button id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div id="mobile-menu" class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+      <button id="drawer-close" class="drawer-close" aria-label="Close menu">✕</button>
+      <nav class="drawer-nav" aria-label="Mobile primary">
+        <a href="#about-mini" class="drawer-link">About</a>
+         <a href="#how-it-works" class="drawer-link">How It Works</a>
+        <a href="#faqs" class="drawer-link">FAQs</a>
+        <a href="#contact" class="drawer-link">Contact</a>
+  
+      </nav>
+    </div>
+  </div>
+
+ <!-- HERO SECTION -->
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      
+      <!-- Left: Text Content -->
+      <div class="hero-left">
+        <div class="pill">Introducing Soro</div>
+        
+        <h1 class="hero-title">
+          Book Your Bus.<br>
+         Skip The Station.<br>
+         Travel <span class="accent">Smarter.</span>
+        </h1>
+        
+        <p class="hero-sub">
+           Book bus tickets up to 30 days ahead with live pricing, 
+            mobile money payments, and digital tickets sent straight 
+            to your phone. No more station queues.
+        </p>
+        
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://forms.gle/d3CsHXRXUPh1cCjZ7">Join the Waitlist</a>
+          <a class="btn btn-outline" href="#download">Download The App</a>
+        </div>
+        
+        <div class="trust-row">
+          <span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 0L10.3 5.4L16 6.2L12 10.1L13 16L8 13.4L3 16L4 10.1L0 6.2L5.7 5.4L8 0Z" fill="#4CAF79"/>
+            </svg>
+            Live GPS
+          </span>
+          <span class="separator">·</span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="#4CAF79" stroke-width="2" fill="none"/>
+              <path d="M8 4V8L11 11" stroke="#4CAF79" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            24/7 Support
+          </span>
+          <span class="separator">·</span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="5" cy="5" r="3" fill="#4CAF79"/>
+              <circle cx="11" cy="5" r="3" fill="#4CAF79"/>
+              <circle cx="8" cy="11" r="3" fill="#4CAF79"/>
+            </svg>
+            Trusted Locally
+          </span>
+        </div>
+      </div>
+      
+      <!-- Right: Blob Image -->
+      <div class="hero-right">
+        <svg class="hero-blob" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+           
+            <clipPath id="blobClip">
+              <path d="M420,260Q415,290,420,330Q425,370,395,395Q365,420,325,425Q285,430,250,445Q215,460,175,445Q135,430,110,400Q85,370,65,330Q45,290,50,250Q55,210,75,180Q95,150,125,135Q155,120,190,105Q225,90,260,85Q295,80,330,90Q365,100,395,125Q425,150,422.5,192.5Z"/>
+            </clipPath>
+            
+            
+            <linearGradient id="imgOverlay" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#275F40;stop-opacity:0.1" />
+              <stop offset="100%" style="stop-color:#275F40;stop-opacity:0" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Clipped Image -->
+          <g clip-path="url(#blobClip)">
+            
+            <image 
+              href="assets/soro-passenger.jpg" 
+              width="500" 
+              height="500" 
+              preserveAspectRatio="xMidYMid slice"
+            />
+        
+            <rect width="500" height="500" fill="url(#imgOverlay)" />
+          </g>
+        </svg>
+      </div>
+      
+    </div>
+  </section>
+
+ <!-- About Mini Section -->
+<section id="about-mini" class="about-mini" aria-labelledby="about-mini-h2">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-copy">
+        <h2 id="about-mini-h2">Travel Planning Made Simple</h2>
+
+        <p class="about-mission">
+          Soro makes booking bus tickets in Zambia as easy as ordering food. 
+          Search routes, compare live prices, book up to 30 days in advance, 
+          and pay with mobile money—all from the comfort of your home. 
+          Your digital ticket is sent instantly.
+        </p>
+
+        <div class="stats-row" role="list" aria-label="Key stats">
+          <div class="stat-card" role="listitem" data-animate>
+            <div class="stat-num" data-target="50" data-suffix="K+">0</div>
+            <div class="stat-label">Bookings Processed</div>
+          </div>
+
+          <div class="stat-card" role="listitem" data-animate>
+            <div class="stat-num" data-target="5">0</div>
+            <div class="stat-label">Provinces Covered</div>
+          </div>
+
+          <div class="stat-card" role="listitem" data-animate>
+             <div class="stat-num" data-target="3">0</div>
+              <div class="stat-label">Minutes to Book</div>
+          </div>
+
+          <div class="stat-card" role="listitem" data-animate>
+            <div class="stat-num" data-target="30" data-suffix="%">0</div>
+            <div class="stat-label">Less Wait Time</div>
+          </div>
+        </div>
+      </div>
+      
+      <!--Decorative image-->
+      <aside class="about-art" aria-hidden="true">
+        <img src="assets/soro-mockup.jpg" alt="" />
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path 
+      d="M0,50 C240,80 480,20 720,50 C960,80 1200,20 1440,50 L1440,100 L0,100 Z" 
+      fill="#ffffff"
+    />
+  </svg>
+</div>
+
+<!-- Before/After Section -->
+<section id="before-after" class="before-after">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Before Soro. After Soro.</h2>
+      <p class="section-subtitle">See how we're transforming transportation across Zambia</p>
+    </div>
+    
+    <div class="comparison-grid">
+      
+      <!-- Left: Problems -->
+      <div class="comparison-col problem-col">
+        <div class="col-header">
+          <span class="col-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="13" stroke="#dc2626" stroke-width="2"/>
+              <path d="M14 8V14M14 20H14.01" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3 class="col-title">The Problem</h3>
+        </div>
+        
+        <ul class="comparison-list">
+          <li class="comparison-item" data-animate>
+            <span class="item-icon problem-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong>Station queues waste hours</strong> waiting to buy tickets
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon problem-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong>Can't book ahead</strong> sold out on travel day
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon problem-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong>Unclear pricing</strong> no way to know fares in advance
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon problem-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong> Cash-only at stations</strong> inconvenient and unsafe
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon problem-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong>No route information</strong> unclear schedules and stops
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Right: Solutions -->
+      <div class="comparison-col solution-col">
+        <div class="col-header">
+          <span class="col-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="13" stroke="#4CAF79" stroke-width="2"/>
+              <path d="M10 14L13 17L18 10" stroke="#4CAF79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3 class="col-title">The Soro Solution</h3>
+        </div>
+        
+        <ul class="comparison-list">
+          <li class="comparison-item" data-animate>
+            <span class="item-icon solution-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong>Book from anywhere</strong> no station visit needed
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon solution-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong> Book up to 30 days in advance</strong> plan ahead, guarantee your seat
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon solution-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong>Live, accurate pricing </strong> see fares before you book
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon solution-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong>Mobile money payments</strong>  MTN, Airtel, and Zamtel
+            </div>
+          </li>
+          
+          <li class="comparison-item" data-animate>
+            <span class="item-icon solution-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="item-content">
+              <strong> Printable tickets</strong> sent directly to your email or downloaded on the app
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Book your bus in 4 easy steps</p>
+    </div>
+
+    <div class="steps-grid">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Search Routes</h3>
+        <p class="step-desc">Enter your departure city, destination, and travel date.</p>
+      </div>
+
+      <!-- Arrow (desktop only) -->
+      <div class="step-arrow">→</div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Pick Your Seat</h3>
+        <p class="step-desc">View live prices, select your seat, and add luggage.</p>
+      </div>
+
+      <!-- Arrow -->
+      <div class="step-arrow">→</div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Pay Securely</h3>
+        <p class="step-desc">Complete payment using mobile money or bank card.</p>
+      </div>
+
+      <!-- Arrow -->
+      <div class="step-arrow">→</div>
+
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Get Your Ticket</h3>
+        <p class="step-desc">Receive your digital ticket instantly via SMS and email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section class="partners" id="partners">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Partners</h2>
+      <p class="section-subtitle">Growing partnerships with trusted bus companies across Zambia</p>
+    </div>
+
+    <div class="partners-content">
+      <div class="coming-soon-banner">
+        <div class="coming-soon-icon">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="31" stroke="#4CAF79" stroke-width="2"/>
+            <path d="M32 16V32M32 48H32.02" stroke="#4CAF79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="coming-soon-title">Coming Soon</h3>
+        <p class="coming-soon-text">We're partnering with leading bus companies to bring you even more choices and better connectivity across Zambia. Stay tuned for exciting announcements!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs Section -->
+<section class="faqs" id="faqs">
+  <div class="container">
+     <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about Soro</p>
+    <div class="faqs-grid">
+      <div class="faqs-content">
+
+
+            <div class="faq-list" id="faqList">
+          <!-- First 5 FAQs visible by default -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">What is Soro?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Soro is an online bus booking platform that allows passengers in Zambia to search, compare, and book bus tickets for both long-distance and short-distance travel.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">How do I book a ticket?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <ol class="faq-list-ordered">
+                <li>Enter your departure and destination locations</li>
+                <li>Select your travel date</li>
+                <li>Choose a bus and seat</li>
+                <li>Enter passenger details</li>
+                <li>Complete payment using mobile money or supported methods</li>
+                <li>Receive your ticket via SMS or email</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Which payment methods are supported?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We support:</p>
+              <ul class="faq-list-bulleted">
+                <li>MTN Mobile Money</li>
+                <li>Airtel Money</li>
+                <li>Zamtel Kwacha</li>
+                <li>Other approved digital payment options</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Do I need to print my ticket?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>No. A digital ticket (SMS or email) is sufficient. However, some bus operators may request a printed copy.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Can I cancel or change my ticket?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Cancellation and changes depend on the bus operator's policy. Please check the terms displayed before confirming your booking.</p>
+            </div>
+          </div>
+
+          <!-- Hidden FAQs (add class="hidden-faq" to these) -->
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">How long do refunds take?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Refunds typically take 5–14 business days, depending on the payment provider and operator policies.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">What happens if the bus is delayed or canceled?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Bus operators are responsible for delays or cancellations. We will notify you where possible and assist with rebooking when available.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Is my personal information safe?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. We use secure systems and follow data protection best practices to safeguard your information.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Can I book tickets for someone else?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. You may book tickets for family or friends by entering their correct passenger details.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Do you support rural and inter-town routes?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Our platform aims to serve both urban and rural routes across Zambia.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">What if I miss my bus?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Missed buses are generally non-refundable. Please arrive early at the boarding point.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">How can I contact customer support?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Email: soro.trav.log@gmail.com</p>
+              <p>Support Hours: 24/7</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Are there service fees?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, a small service fee may apply and will be clearly shown before payment.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Can bus operators partner with the platform?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Bus operators may contact us to list their routes and services on the platform.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">What languages does the platform support?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Currently, English is supported, with plans to add local Zambian languages.</p>
+            </div>
+          </div>
+
+          <div class="faq-item hidden-faq">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Is the platform available on mobile?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. The website is mobile-friendly, and a mobile app may be launched in the future.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Show More/Less Button -->
+        <div class="faq-show-more">
+          <button class="btn-show-more" id="showMoreBtn">
+            Show More Questions
+          </button>
+        </div>
+      </div>
+      <div class="faqs-image">
+        <img src="/Assets/FAQs.svg" alt="FAQ illustration" />
+    </div>
+      </div>
+      
+  </div>
+</section>
+
+<!-- Waitlist Section -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="waitlist-wrapper">
+      <div class="waitlist-content">
+        <h2 class="waitlist-title">Be Part of the Movement</h2>
+        <p class="waitlist-description">
+          SORO is building a simple online bus ticket booking platform for Zambia — so you can check routes, secure seats, and travel with confidence.
+        </p>
+        <p class="waitlist-cta-text">
+          Join the waitlist for early access and launch discounts 👇
+        </p>
+        <a href="https://forms.gle/d3CsHXRXUPh1cCjZ7" target="_blank" rel="noopener" class="btn btn-primary btn-waitlist">
+          Join the Waitlist
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Have questions? We'd love to hear from you. Reach out anytime.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#275F40"/>
+              <path d="M12.5 7H11V13L16.2 16.2L17 15.3L12.5 12.2V7Z" fill="#275F40"/>
+            </svg>
+          </div>
+          <h3>Operating Hours</h3>
+          <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+          <p>Saturday: 9:00 AM - 4:00 PM</p>
+          <p>24/7 Support Available</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M17 10.5V7C17 6.45 16.55 6 16 6H4C3.45 6 3 6.45 3 7V19C3 19.55 3.45 20 4 20H16C16.55 20 17 19.55 17 19V12.5H19V6C19 4.9 18.1 4 17 4H5C3.9 4 3 4.9 3 6V18C3 19.1 3.9 20 5 20H15V22H5C2.79 22 1 20.21 1 18V6C1 3.79 2.79 2 5 2H17C19.21 2 21 3.79 21 6V12.5H17Z" fill="#275F40"/>
+            </svg>
+          </div>
+          
+          <h3>Phone Support</h3>
+          <p>+260 767 888 511</p>
+          <a href="tel:+260767888511" class="contact-link">Call us now →</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z" fill="#275F40"/>
+            </svg>
+          </div>
+          <h3>Email Us</h3>
+          <p>Soro.trav.log@gmail.com</p>
+          <a href="mailto:Soro.trav.log@gmail.com" class="contact-link">Send email →</a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <form class="contact-form" method="POST">
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone (Optional)</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+260 XXX XXXX">
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <select id="subject" name="subject" class="form-input" required>
+              <option value="">Select a topic...</option>
+              <option value="passenger">Passenger Support</option>
+              <option value="driver">Driver Partnership</option>
+              <option value="business">Business Inquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder="Tell us how we can help..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-main">
+      <!-- Brand & Description -->
+      <div class="footer-brand">
+        <h3 class="footer-logo">SORO</h3>
+        <p class="footer-desc">Modernizing transportation across Zambia. Moving people, moving produce, moving faster.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/share/1DowAHweQi/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-icon" title="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+      
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" title="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37Z" stroke="currentColor" stroke-width="2" fill="none"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+            </svg>
+          </a>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Sections -->
+      <div class="footer-links-grid">
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#book">Book a Trip</a></li>
+            <li><a href="#download">Download App</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Soro</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#press">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#safety">Safety</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#community">Community</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#cookies">Cookie Policy</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">© 2025 Soro Mobility. All rights reserved. | Your trusted partner in smart transportation.</p>
+      </div>
+    </div>
+  </footer>
+  </main>
+
+  <script src="/Assets/script.js"></script>
+</body>
+</html>
+
+
+
