@@ -176,4 +176,63 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /** ---------- CONTACT FORM SUBMISSION (FORMSPREE) ---------- **/
+const contactForm = document.getElementById('contactForm');
+const formMessages = document.getElementById('form-messages');
+const submitBtn = contactForm.querySelector('.btn-submit');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    formMessages.style.display = 'none';
+    formMessages.className = 'form-messages';
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        // Success
+        formMessages.textContent = '✓ Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+        formMessages.className = 'form-messages success';
+        contactForm.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          formMessages.style.display = 'none';
+        }, 5000);
+      } else {
+        // Error from Formspree
+        const data = await response.json();
+        if (data.errors) {
+          formMessages.textContent = '✗ ' + data.errors.map(error => error.message).join(', ');
+        } else {
+          formMessages.textContent = '✗ Oops! There was a problem submitting your form. Please try again.';
+        }
+        formMessages.className = 'form-messages error';
+      }
+    } catch (error) {
+      // Network error
+      formMessages.textContent = '✗ Oops! There was a problem submitting your form. Please check your connection and try again.';
+      formMessages.className = 'form-messages error';
+    } finally {
+      // Remove loading state
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+}
 });

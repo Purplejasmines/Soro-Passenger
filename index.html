@@ -26,7 +26,7 @@
     <div class="container header-inner">
       <div class="brand">
         <a href="#" class="logo" aria-label="Soro home">
-          <img src="/assets/soro.png" alt="Soro" width="80" height="20" />
+          <img src="./Assets/soro.png" alt="Soro" width="80" height="20" />
           SORO
         </a>
       </div>
@@ -135,7 +135,7 @@
           <g clip-path="url(#blobClip)">
             
             <image 
-              href="assets/soro-passenger.jpg" 
+              href="./Assets/soro-passenger.jpg" 
               width="500" 
               height="500" 
               preserveAspectRatio="xMidYMid slice"
@@ -165,18 +165,19 @@
 
         <div class="stats-row" role="list" aria-label="Key stats">
           <div class="stat-card" role="listitem" data-animate>
-            <div class="stat-num" data-target="50" data-suffix="K+">0</div>
+            <div class="stat-num" data-target="1" data-suffix="K+">0</div>
             <div class="stat-label">Bookings Processed</div>
           </div>
 
           <div class="stat-card" role="listitem" data-animate>
-            <div class="stat-num" data-target="5">0</div>
+            <div class="stat-num" data-target="5" data-suffix="+">0</div>
             <div class="stat-label">Provinces Covered</div>
           </div>
 
           <div class="stat-card" role="listitem" data-animate>
-             <div class="stat-num" data-target="3">0</div>
-              <div class="stat-label">Minutes to Book</div>
+             <div class="stat-label-prefix">Book under</div>
+            <div class="stat-num" data-target="3">0</div>
+            <div class="stat-label">Minutes</div>
           </div>
 
           <div class="stat-card" role="listitem" data-animate>
@@ -188,7 +189,7 @@
       
       <!--Decorative image-->
       <aside class="about-art" aria-hidden="true">
-        <img src="assets/soro-mockup.jpg" alt="" />
+        <img src="./Assets/soro-mockup.jpg" alt="" />
       </aside>
     </div>
   </div>
@@ -368,6 +369,7 @@
   </div>
 </section>
 
+<!--How It Works-->
 <section id="how-it-works" class="how-it-works">
   <div class="container">
     <div class="section-header">
@@ -513,7 +515,7 @@
             </div>
           </div>
 
-          <!-- Hidden FAQs (add class="hidden-faq" to these) -->
+          <!-- Hidden FAQs-->
           <div class="faq-item hidden-faq">
             <button class="faq-trigger" aria-expanded="false">
               <span class="faq-question">How long do refunds take?</span>
@@ -634,7 +636,7 @@
         </div>
       </div>
       <div class="faqs-image">
-        <img src="/Assets/FAQs.svg" alt="FAQ illustration" />
+        <img src="./Assets/FAQs.svg" alt="FAQ illustration" />
     </div>
       </div>
       
@@ -711,42 +713,56 @@
       </div>
 
       <!-- Contact Form -->
-      <div class="contact-form-wrapper">
-        <form class="contact-form" method="POST">
-          <div class="form-group">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
-          </div>
+<div class="contact-form-wrapper">
+  <form class="contact-form"
+    action="https://formspree.io/f/mreekklq" 
+    method="POST"
+    id="contactForm">
+    
+    <div class="form-group">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+    </div>
 
-          <div class="form-group">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
-          </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+    </div>
 
-          <div class="form-group">
-            <label for="phone" class="form-label">Phone (Optional)</label>
-            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+260 XXX XXXX">
-          </div>
+    <div class="form-group">
+      <label for="phone" class="form-label">Phone (Optional)</label>
+      <input type="tel" id="phone" name="phone" class="form-input" placeholder="+260 XXX XXXX">
+    </div>
 
-          <div class="form-group">
-            <label for="subject" class="form-label">Subject</label>
-            <select id="subject" name="subject" class="form-input" required>
-              <option value="">Select a topic...</option>
-              <option value="passenger">Passenger Support</option>
-              <option value="driver">Driver Partnership</option>
-              <option value="business">Business Inquiry</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
+    <div class="form-group">
+      <label for="subject" class="form-label">Subject</label>
+      <select id="subject" name="subject" class="form-input" required>
+        <option value="">Select a topic...</option>
+        <option value="Passenger Support">Passenger Support</option>
+        <option value="Driver Partnership">Driver Partnership</option>
+        <option value="Business Inquiry">Business Inquiry</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
 
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder="Tell us how we can help..." required></textarea>
-          </div>
+    <div class="form-group">
+      <label for="message" class="form-label">Message</label>
+      <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder="Tell us how we can help..." required></textarea>
+    </div>
 
-          <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
-        </form>
-      </div>
+    <!-- Hidden fields for Formspree configuration -->
+    <input type="hidden" name="_subject" value="New Contact Form Submission from Soro">
+    <input type="hidden" name="_cc" value="soro.trav.log@gmail.com">
+    <input type="text" name="_gotcha" style="display:none">
+     
+    <div id="form-messages" class="form-messages"></div>
+    
+    <button type="submit" class="btn btn-primary btn-submit">
+      <span class="btn-text">Send Message</span>
+      <span class="btn-loader" style="display: none;">Sending...</span>
+    </button>
+  </form>
+    </div>
     </div>
   </div>
 </section>
@@ -828,7 +844,7 @@
   </footer>
   </main>
 
-  <script src="/Assets/script.js"></script>
+  <script src="./Assets/script.js"></script>
 </body>
 </html>
 
