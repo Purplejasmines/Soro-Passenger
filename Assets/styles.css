@@ -549,14 +549,7 @@ img, svg, picture, video, iframe {
   line-height: 1.3;
 }
 
-.stat-label-prefix {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--soro-mint);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
+
 
 .about-art {
   display: flex;
@@ -2433,7 +2426,8 @@ img, svg, picture, video, iframe {
     font-size: 24px;
   }
 
-/*Partners*/
+
+  /*Partners*/
 
   .partners {
     padding: 48px 0;
@@ -2498,6 +2492,10 @@ img, svg, picture, video, iframe {
   }
 
   .faq-answer p {
+    font-size: 13px;
+  }
+
+  .faq-answer li {
     font-size: 13px;
   }
 
@@ -2723,6 +2721,34 @@ img, svg, picture, video, iframe {
   
   .hero-blob {
     max-width: 160px;
+  }
+
+  .stat-label-prefix {
+    font-size: 9px;
+    white-space: nowrap; 
+  }
+
+  .stat-num {
+    font-size: 28px;
+    white-space: nowrap; 
+  }
+
+  .stat-label {
+    font-size: 11px;
+    line-height: 1.3;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  
+  .stat-label {
+    font-size: 11px;
+    line-height: 1.2;
+    min-height: 28px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 

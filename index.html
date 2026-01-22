@@ -174,16 +174,16 @@
             <div class="stat-label">Provinces Covered</div>
           </div>
 
-          <div class="stat-card" role="listitem" data-animate>
-             <div class="stat-label-prefix">Book under</div>
-            <div class="stat-num" data-target="3">0</div>
-            <div class="stat-label">Minutes</div>
-          </div>
+        <div class="stat-card" role="listitem" data-animate>
+          <div class="stat-num" data-target="3" data-prefix="<">0</div>
+          <div class="stat-label">Minutes to Book</div>
+        </div>
 
           <div class="stat-card" role="listitem" data-animate>
             <div class="stat-num" data-target="30" data-suffix="%">0</div>
             <div class="stat-label">Less Wait Time</div>
           </div>
+          
         </div>
       </div>
       
@@ -713,11 +713,11 @@
       </div>
 
       <!-- Contact Form -->
-<div class="contact-form-wrapper">
-  <form class="contact-form"
-    action="https://formspree.io/f/mreekklq" 
-    method="POST"
-    id="contactForm">
+      <div class="contact-form-wrapper">
+        <form class="contact-form"
+            action="https://formspree.io/f/mreekklq" 
+             method="POST"
+            id="contactForm">
     
     <div class="form-group">
       <label for="name" class="form-label">Full Name</label>
@@ -750,10 +750,10 @@
       <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder="Tell us how we can help..." required></textarea>
     </div>
 
-    <!-- Hidden fields for Formspree configuration -->
-    <input type="hidden" name="_subject" value="New Contact Form Submission from Soro">
-    <input type="hidden" name="_cc" value="soro.trav.log@gmail.com">
-    <input type="text" name="_gotcha" style="display:none">
+    
+   <!-- Hidden fields for Formspree configuration -->
+<input type="hidden" name="_subject" value="New Contact Form Submission from Soro">
+<input type="text" name="_gotcha" style="display:none">
      
     <div id="form-messages" class="form-messages"></div>
     

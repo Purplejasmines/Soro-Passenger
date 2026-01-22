@@ -1,9 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /** ---------- YEAR ---------- **/
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  
+  // ========== UTILITY FUNCTIONS ==========
+  
+  /**
+   * Animate counter from start to end with easing
+   */
+  function animateCounter(element, start, end, duration, suffix = '', prefix = '') {
+    let startTimestamp = null;
+    
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      // Cubic ease-out
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(easeOut * (end - start) + start);
+      
+      element.textContent = prefix + current + suffix;
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        element.textContent = prefix + end + suffix;
+      }
+    };
+    
+    window.requestAnimationFrame(step);
+  }
 
-  /** ---------- MOBILE DRAWER ---------- **/
+  // ========== YEAR UPDATE ==========
+  
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  // ========== MOBILE DRAWER ==========
+  
   const menuToggle = document.getElementById('menu-toggle');
   const mobileDrawer = document.getElementById('mobile-menu');
   const drawerClose = document.getElementById('drawer-close');
@@ -27,128 +60,151 @@ document.addEventListener('DOMContentLoaded', () => {
   menuToggle?.addEventListener('click', openDrawer);
   drawerClose?.addEventListener('click', closeDrawer);
 
-  if (mobileDrawer) {
-    mobileDrawer.addEventListener('click', (e) => {
-      if (e.target === mobileDrawer) closeDrawer();
-    });
-  }
+  // Close drawer when clicking outside
+  mobileDrawer?.addEventListener('click', (e) => {
+    if (e.target === mobileDrawer) closeDrawer();
+  });
 
-  /** ---------- HEADER SCROLL ---------- **/
+  // Close drawer when clicking nav links
+  const drawerLinks = document.querySelectorAll('.drawer-link');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // ========== HEADER SCROLL EFFECT ==========
+  
   const header = document.getElementById('site-header');
   if (header) {
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    }, { passive: true });
   }
 
-  /** ---------- BASE INTERSECTION OBSERVER SETTINGS ---------- **/
+  // ========== INTERSECTION OBSERVER SETTINGS ==========
+  
   const isMobile = window.innerWidth < 700;
   const baseObserverOptions = {
     threshold: isMobile ? 0.35 : 0.45,
-    rootMargin: '0px 0px 0px 0px',
+    rootMargin: '0px'
   };
 
-  /** ---------- COUNTER ANIMATION ---------- **/
-  function animateCounter(element, start, end, duration, suffix = '') {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(easeOut * (end - start) + start);
-      element.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-      else element.textContent = end + suffix;
-    };
-    requestAnimationFrame(step);
-  }
-
-  /** ---------- SECTION OBSERVER (About, Before/After, How It Works) ---------- **/
+  // ========== SECTION ANIMATIONS (About, Before/After, How It Works) ==========
+  
   const sectionObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
 
       entry.target.classList.add('inview');
 
+      // Animate stat cards with counters
       const statCards = entry.target.querySelectorAll('.stat-card[data-animate]');
       statCards.forEach((card) => {
         const numEl = card.querySelector('.stat-num');
         if (!numEl) return;
+        
         const target = parseInt(numEl.getAttribute('data-target'), 10) || 0;
         const suffix = numEl.getAttribute('data-suffix') || '';
-        animateCounter(numEl, 0, target, 1500, suffix);
+        const prefix = numEl.getAttribute('data-prefix') || '';
+        
+        animateCounter(numEl, 0, target, 1500, suffix, prefix);
       });
 
       obs.unobserve(entry.target);
     });
   }, baseObserverOptions);
 
-  ['.about-mini', '.before-after', '.how-it-works'].forEach((selector) => {
+  // Observe sections
+  const sectionsToObserve = ['.about-mini', '.before-after', '.how-it-works'];
+  sectionsToObserve.forEach((selector) => {
     const section = document.querySelector(selector);
     if (section) sectionObserver.observe(section);
   });
 
-  /** ---------- STEP CARD OBSERVER (Staggered Animation) ---------- **/
+  // ========== STEP CARDS STAGGER ANIMATION ==========
+  
   const stepCards = document.querySelectorAll('.step-card');
   if (stepCards.length) {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const staggerObserver = new IntersectionObserver(
+    
+    const stepObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
+          
           const idx = Array.from(stepCards).indexOf(entry.target);
           const delay = prefersReduced ? 0 : Math.min(idx * 80, 400);
+          
           entry.target.style.transitionDelay = `${delay}ms`;
           entry.target.classList.add('inview');
-          setTimeout(() => (entry.target.style.transitionDelay = ''), delay + 450);
-          staggerObserver.unobserve(entry.target);
+          
+          // Reset transition delay after animation
+          setTimeout(() => {
+            entry.target.style.transitionDelay = '';
+          }, delay + 450);
+          
+          stepObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.45, rootMargin: '0px 0px 0px 0px' }
+      { threshold: 0.45, rootMargin: '0px' }
     );
-    stepCards.forEach((card) => staggerObserver.observe(card));
+    
+    stepCards.forEach((card) => stepObserver.observe(card));
   }
 
-  /** ---------- CONTACT CARD OBSERVER ---------- **/
+  // ========== CONTACT CARDS ANIMATION ==========
+  
   const contactCards = document.querySelectorAll('.contact-card');
   if (contactCards.length) {
     const contactObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, i) => {
           if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('in-view'), i * 120);
+            setTimeout(() => {
+              entry.target.classList.add('in-view');
+            }, i * 120);
             contactObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.4, rootMargin: '0px 0px 0px 0px' }
+      { threshold: 0.4, rootMargin: '0px' }
     );
+    
     contactCards.forEach((card) => contactObserver.observe(card));
   }
 
-  /** ---------- STEP ELEMENTS (MOBILE ANIMATION BEHAVIOR) ---------- **/
+  // ========== GENERAL ANIMATE ELEMENTS ==========
+  
   const animateElements = document.querySelectorAll('[data-animate]');
-  const stepObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('inview');
-      stepObserver.unobserve(entry.target);
-    });
-  }, { threshold: 0.35, rootMargin: '0px 0px 0px 0px' });
+  if (animateElements.length) {
+    const generalObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('inview');
+          generalObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35, rootMargin: '0px' }
+    );
 
-  animateElements.forEach((el) => stepObserver.observe(el));
+    animateElements.forEach((el) => generalObserver.observe(el));
+  }
 
-  /** ---------- FAQ ACCORDION ---------- **/
-  document.querySelectorAll('.faq-trigger').forEach((trigger) => {
+  // ========== FAQ ACCORDION ==========
+  
+  const faqTriggers = document.querySelectorAll('.faq-trigger');
+  faqTriggers.forEach((trigger) => {
     trigger.addEventListener('click', function () {
       const faqItem = this.closest('.faq-item');
       const isActive = faqItem?.classList.contains('active');
 
+      // Close all FAQs
       document.querySelectorAll('.faq-item').forEach((item) => {
         item.classList.remove('active');
         item.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
       });
 
+      // Open clicked FAQ if it wasn't active
       if (!isActive && faqItem) {
         faqItem.classList.add('active');
         this.setAttribute('aria-expanded', 'true');
@@ -156,7 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /** ---------- SHOW MORE / LESS FAQS ---------- **/
+  // ========== FAQ SHOW MORE/LESS ==========
+  
   const showMoreBtn = document.getElementById('showMoreBtn');
   const hiddenFaqs = document.querySelectorAll('.hidden-faq');
   const faqSection = document.querySelector('.faqs');
@@ -166,73 +223,113 @@ document.addEventListener('DOMContentLoaded', () => {
       const isExpanded = !hiddenFaqs[0].classList.contains('hidden-faq');
 
       if (isExpanded) {
+        // Collapsing
         const faqTop = faqSection.getBoundingClientRect().top + window.scrollY;
+        
         hiddenFaqs.forEach((faq) => faq.classList.add('hidden-faq'));
-        setTimeout(() => window.scrollTo({ top: faqTop - 100, behavior: 'smooth' }), 50);
+        
+        setTimeout(() => {
+          window.scrollTo({ top: faqTop - 100, behavior: 'smooth' });
+        }, 50);
+        
         this.textContent = 'Show More Questions';
       } else {
+        // Expanding
         hiddenFaqs.forEach((faq) => faq.classList.remove('hidden-faq'));
         this.textContent = 'Show Less Questions';
       }
     });
   }
+  
+  // ========== CONTACT FORM (FORMSPREE) ==========
 
-  /** ---------- CONTACT FORM SUBMISSION (FORMSPREE) ---------- **/
-const contactForm = document.getElementById('contactForm');
-const formMessages = document.getElementById('form-messages');
-const submitBtn = contactForm.querySelector('.btn-submit');
+  const contactForm = document.getElementById('contactForm');
+  const formMessages = document.getElementById('form-messages');
 
-if (contactForm) {
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // Show loading state
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    formMessages.style.display = 'none';
-    formMessages.className = 'form-messages';
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    
-    try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+  if (contactForm && formMessages) {
+    const submitBtn = contactForm.querySelector('.btn-submit');
+
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
       
-      if (response.ok) {
-        // Success
-        formMessages.textContent = '✓ Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
-        formMessages.className = 'form-messages success';
-        contactForm.reset();
+      // Show loading state
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      formMessages.className = 'form-messages';
+      formMessages.textContent = '';
+      
+      const formData = new FormData(contactForm);
+      
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
         
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          formMessages.style.display = 'none';
-        }, 5000);
-      } else {
-        // Error from Formspree
-        const data = await response.json();
-        if (data.errors) {
-          formMessages.textContent = '✗ ' + data.errors.map(error => error.message).join(', ');
+        if (response.ok) {
+          // Success
+          formMessages.textContent = '✓ Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+          formMessages.className = 'form-messages success';
+          formMessages.style.display = 'block';
+          contactForm.reset();
+          
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            formMessages.style.display = 'none';
+          }, 5000);
         } else {
-          formMessages.textContent = '✗ Oops! There was a problem submitting your form. Please try again.';
+          // Error from Formspree
+          const data = await response.json();
+          if (data.errors) {
+            formMessages.textContent = '✗ ' + data.errors.map(error => error.message).join(', ');
+          } else {
+            formMessages.textContent = '✗ Oops! There was a problem submitting your form. Please try again.';
+          }
+          formMessages.className = 'form-messages error';
+          formMessages.style.display = 'block';
         }
+      } catch (error) {
+        // Network error
+        formMessages.textContent = '✗ Oops! There was a problem submitting your form. Please check your connection and try again.';
         formMessages.className = 'form-messages error';
+        formMessages.style.display = 'block';
+      } finally {
+        // Remove loading state
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
       }
-    } catch (error) {
-      // Network error
-      formMessages.textContent = '✗ Oops! There was a problem submitting your form. Please check your connection and try again.';
-      formMessages.className = 'form-messages error';
-    } finally {
-      // Remove loading state
-      submitBtn.classList.remove('loading');
-      submitBtn.disabled = false;
-    }
+    });
+  }
+  
+  // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+  
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      
+      // Skip if it's just "#"
+      if (href === '#') return;
+      
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        
+        // Close mobile drawer if open
+        if (mobileDrawer?.classList.contains('open')) {
+          closeDrawer();
+        }
+        
+        // Smooth scroll to target
+        const offsetTop = target.offsetTop - 80; // Account for fixed header
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
-}
+
 });
