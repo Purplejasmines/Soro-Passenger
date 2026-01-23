@@ -45,7 +45,7 @@ img, svg, picture, video, iframe {
   padding: 0 24px;
 }
 
-/* HEADER / NAVIGATION */
+/*NAVIGATION */
 
 .header {
   position: fixed;
@@ -852,14 +852,14 @@ img, svg, picture, video, iframe {
 .how-it-works.inview .step-card:nth-child(5) { transition-delay: 0.3s; }
 .how-it-works.inview .step-card:nth-child(7) { transition-delay: 0.4s; }
 
-/* Per-card reveal when observed */
+
 .step-card.inview {
   opacity: 1;
   transform: translateY(0);
   will-change: opacity, transform;
 }
 
-/* Respect reduced motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
   .step-card,
   .step-card.inview {
@@ -990,7 +990,7 @@ img, svg, picture, video, iframe {
       gap: 1.5px;
     }
 
-/* Add transition to FAQ items */
+
 .faq-item {
   background: white;
   border: 2px solid rgba(76, 175, 121, 0.08);

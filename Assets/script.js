@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // ========== UTILITY FUNCTIONS ==========
   
-  /**
-   * Animate counter from start to end with easing
-   */
   function animateCounter(element, start, end, duration, suffix = '', prefix = '') {
     let startTimestamp = null;
     
@@ -12,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       
-      // Cubic ease-out
+     
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(easeOut * (end - start) + start);
       
@@ -60,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
   menuToggle?.addEventListener('click', openDrawer);
   drawerClose?.addEventListener('click', closeDrawer);
 
-  // Close drawer when clicking outside
+  
   mobileDrawer?.addEventListener('click', (e) => {
     if (e.target === mobileDrawer) closeDrawer();
   });
 
-  // Close drawer when clicking nav links
+  
   const drawerLinks = document.querySelectorAll('.drawer-link');
   drawerLinks.forEach(link => {
     link.addEventListener('click', closeDrawer);
@@ -88,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: '0px'
   };
 
-  // ========== SECTION ANIMATIONS (About, Before/After, How It Works) ==========
+  // ==========SECTION ANIMATIONS==========
   
   const sectionObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
@@ -96,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       entry.target.classList.add('inview');
 
-      // Animate stat cards with counters
+     
       const statCards = entry.target.querySelectorAll('.stat-card[data-animate]');
       statCards.forEach((card) => {
         const numEl = card.querySelector('.stat-num');
@@ -113,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, baseObserverOptions);
 
-  // Observe sections
+  
   const sectionsToObserve = ['.about-mini', '.before-after', '.how-it-works'];
   sectionsToObserve.forEach((selector) => {
     const section = document.querySelector(selector);
@@ -137,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
           entry.target.style.transitionDelay = `${delay}ms`;
           entry.target.classList.add('inview');
           
-          // Reset transition delay after animation
+          
           setTimeout(() => {
             entry.target.style.transitionDelay = '';
           }, delay + 450);
@@ -198,13 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const faqItem = this.closest('.faq-item');
       const isActive = faqItem?.classList.contains('active');
 
-      // Close all FAQs
       document.querySelectorAll('.faq-item').forEach((item) => {
         item.classList.remove('active');
         item.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
       });
 
-      // Open clicked FAQ if it wasn't active
       if (!isActive && faqItem) {
         faqItem.classList.add('active');
         this.setAttribute('aria-expanded', 'true');
@@ -223,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isExpanded = !hiddenFaqs[0].classList.contains('hidden-faq');
 
       if (isExpanded) {
-        // Collapsing
+        
         const faqTop = faqSection.getBoundingClientRect().top + window.scrollY;
         
         hiddenFaqs.forEach((faq) => faq.classList.add('hidden-faq'));
@@ -234,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         this.textContent = 'Show More Questions';
       } else {
-        // Expanding
         hiddenFaqs.forEach((faq) => faq.classList.remove('hidden-faq'));
         this.textContent = 'Show Less Questions';
       }
@@ -276,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
           formMessages.style.display = 'block';
           contactForm.reset();
           
-          // Hide success message after 5 seconds
+  
           setTimeout(() => {
             formMessages.style.display = 'none';
           }, 5000);
@@ -297,7 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
         formMessages.className = 'form-messages error';
         formMessages.style.display = 'block';
       } finally {
-        // Remove loading state
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
       }
@@ -310,20 +303,17 @@ document.addEventListener('DOMContentLoaded', () => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
       
-      // Skip if it's just "#"
       if (href === '#') return;
       
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        
-        // Close mobile drawer if open
         if (mobileDrawer?.classList.contains('open')) {
           closeDrawer();
         }
         
         // Smooth scroll to target
-        const offsetTop = target.offsetTop - 80; // Account for fixed header
+        const offsetTop = target.offsetTop - 80;
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
